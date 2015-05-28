@@ -1,0 +1,66 @@
+<ColoredLabel@Label>:
+	font_size: '48sp'
+	color: (.6, .6, .6, 1)
+	canvas.before:
+		Color:
+			rgb: (.9, .9, .9)
+		Rectangle:
+			pos: self.x + sp(2), self.y + sp(2)
+			size: self.width - sp(4), self.height - sp(4)
+<Select_database>:
+	canvas.before:
+		Color:
+			rgba: 0.909,.898,1,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+
+	BoxLayout:
+		size_hint: 1,.2
+		orientation: 'vertical'
+		Button:
+			text: "Home"
+			on_release: root.on_back()
+		BoxLayout:
+			
+			Button:
+				id: select_db
+				text: "Dive into Database"
+				markup: True
+				bold: True
+				on_release: root.on_release()
+			ToggleButton:
+				text: 'Loop'
+				id: btnloop
+				
+			Label:
+				size_hint_x: None
+				width: self.height
+				text: '{}'.format(carousel.index)
+
+			Button:
+				size_hint_x: None
+				width: self.height
+				text: 'Prev'
+				on_release: carousel.load_previous()
+			
+			Button:
+				size_hint_x: None
+				width: self.height
+				text: 'Next'
+				on_release: carousel.load_next()
+
+	Carousel:
+		id: carousel
+		loop: btnloop.state == 'down'
+		
+		
+		ColoredLabel:
+			text: 'Database 1'
+
+		ColoredLabel:
+			text: 'Database 2'
+
+		ColoredLabel:
+			text: 'Database 3'
+	

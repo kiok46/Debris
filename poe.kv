@@ -1,0 +1,85 @@
+#: import Window kivy.core.window
+<TextInput>:
+<Label_poe@Label>:
+	bold: True
+	canvas.before:
+		Color:
+			rgba: 0.3,0.6,0.8,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+
+<POE>:
+	canvas.before:
+		Color:
+			rgba: 1,1,1,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	orientation: 'vertical'
+	Button:
+		size_hint:1,.1
+		text:"Back" 
+		background_color: 0,.4,.48,1
+		on_release: root.on_back()
+	BoxLayout:
+		padding: 6
+		spacing: 5
+		BoxLayout:
+			orientation:'vertical'
+			
+			Label_poe:
+				text: 'ID'
+				markup: True
+				halign: 'left'
+				
+			Label_poe:
+				text: 'Longitude'
+				markup: True
+				halign: 'left'
+			Label_poe:
+				text: 'Latitude'
+				markup: True
+				halign: 'left'
+			Label_poe:
+				text: 'Approx charge Weight'
+				markup: True
+				halign: 'left'
+			Label_poe:
+				text: 'Crater Diameter'
+				markup: True
+			Label_poe:
+				text: 'Crater Depth'
+				markup: True
+			Label_poe:
+				text: 'Remark'
+				markup: True
+		BoxLayout:
+			padding:3
+			spacing:3
+			orientation: 'vertical'
+			TextInput:
+				text: "00x123"
+				multiline: False
+			TextInput:
+				multiline: False
+		
+			TextInput:
+				multiline: False
+			TextInput:
+				multiline: False
+			
+			TextInput:
+				multiline: False
+			
+			TextInput:
+				multiline: False
+		
+			TextInput:
+		
+	Button:
+		size_hint: 1,.1 
+		text:"Store & Create database"
+		background_color: 0,.4,.48,1
+
+

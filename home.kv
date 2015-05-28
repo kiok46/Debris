@@ -1,0 +1,154 @@
+#: import Factory kivy.factory.Factory
+#: import Builder kivy.lang.Builder
+#: import Ellipse kivy.graphics.Ellipse
+
+<Home>:
+	sm: sm
+	ScreenManager:
+		id: sm
+		name: 'manager'
+		Screen:
+			id: sc1
+			name: 'home'
+			
+			canvas.before:
+				Color:
+					rgba: 0.909,.898,1,1
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			BoxLayout:
+				orientation: 'vertical'
+				BoxLayout:
+					orientation: 'vertical'
+					size_hint: 1,.5
+					Label:
+						canvas.before:
+							Color:
+								rgba: 0.3,0.6,0.8,1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+						font_size: 32
+						text: "Debris Collection Software"
+			
+			
+			#-----------------Create Database & Select Database ---------------------------------#
+			
+			
+				GridLayout:
+					#orientation: 'vertical'
+					cols: 2
+					padding: 60,60,60,60
+					spacing: 100
+					Button:
+						
+						on_release: sm.current = 'create_database'
+						on_release: sm.transition.direction = 'up'
+						
+						background_color: 0.909,.898,1,0
+						BoxLayout:
+						
+							orientation: 'vertical'
+							pos: self.parent.pos
+							size: self.parent.size
+							canvas.before:
+								Color:
+									rgba: 0.3,0.6,0.8,1
+								Rectangle:
+									pos: self.pos
+									size: self.size
+							Image:
+								
+								source: 'ic_action_edit.png'
+							Label:
+								
+								text: '[color=000000]Create Database[/color]'
+								markup: True
+
+					Button:
+						on_release: sm.current = 'select_database'
+						on_release: sm.transition.direction = 'up'
+						background_color: 0.909,.898,1,0
+						BoxLayout:
+						
+							orientation: 'vertical'
+							pos: self.parent.pos
+							size: self.parent.size
+							canvas.before:
+								Color:
+									rgba: 0.3,0.6,0.8,1
+								Rectangle:
+									pos: self.pos
+									size: self.size
+							Image:
+								source: 'ic_action_locate.png'
+							Label:
+								text: '[color=000000]Select Database[/color]'
+								markup: True
+			
+
+#-------------------------Screen---------------------------------------------------------------------------#
+
+		
+		Screen:
+			id: select_database
+			name: 'select_database'
+			Select_database:
+			
+#-------------------------Screen---------------------------------------------------------------------------#
+
+
+		Screen:
+			id: create_database
+			name: 'create_database'
+			Create_database:
+					
+#-------------------------Screen---------------------------------------------------------------------------#
+
+
+		Screen:
+			id: initials_database
+			name: 'initials_database'
+			Initials_database:
+					
+
+					
+#-------------------------Screen---------------------------------------------------------------------------#
+
+		Screen:
+			id: display_database
+			name: 'display_database'
+			Display_database:
+
+					
+#-------------------------Screen---------------------------------------------------------------------------#
+
+					
+		Screen:
+			id: poe
+			name: 'poe'
+			POE:
+			
+#-------------------------Screen---------------------------------------------------------------------------#
+
+				
+		Screen:
+			id: add_debris_select
+			name: 'add_debris_select'
+			Add_debris_select:
+
+#-------------------------Screen---------------------------------------------------------------------------#
+
+		
+		Screen:
+			id: delete_debris
+			name: 'delete_debris'
+
+#-------------------------Screen---------------------------------------------------------------------------#
+
+
+		Screen:
+			id: map_data
+			name: 'map_data'
+

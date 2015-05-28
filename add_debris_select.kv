@@ -1,0 +1,67 @@
+<Button>:
+	background_color: 0,.4,.48,1
+	
+<Add_Debris_Select>:
+	orientation: 'vertical'
+	canvas.before:
+		Color:
+			rgba: 0.3,0.6,0.8,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	BoxLayout:
+		size_hint: 1,.1
+		ToggleButton:
+			id: tbh
+			text: 'Horizontal'
+			group: 'accordion'
+			state: 'down'
+		ToggleButton:
+			text: 'Vertical'
+			group: 'accordion'
+	Accordion:
+		orientation: 'horizontal' if tbh.state == 'down' else 'vertical'
+		AccordionItem:
+			title: 'Use Camera'
+			Camera:
+				id:camera_2
+				resolution: (1,1)
+				play: True
+		AccordionItem:
+			title: 'Fill details'
+			
+			BoxLayout:
+				orientation: 'vertical'
+				GridLayout:
+					cols: 2
+			
+					Label:
+						text: 'ID'
+					Label:
+						text: "00x123"
+					Label:
+						text: "Type"
+					Spinner:
+						text: 'Concrete'
+						values: {'Other','Concrete','Steel','Mixed'}
+					Label: 
+						text: 'Approx. Weight'
+					TextInput:
+					Label:
+						text: 'Latutude'
+					TextInput:
+						multiline: False
+					Label:
+						text: 'Longitude'
+					TextInput:
+						multiline: False
+						
+				BoxLayout:
+					size_hint: 1,.1
+					Button:
+						text: "Add to DataBase"
+					Button:
+						text: 'Back'
+						on_release: root.on_back()
+					
+	

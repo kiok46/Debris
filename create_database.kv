@@ -1,0 +1,44 @@
+<Create_database>:
+	canvas.before:
+		Color:
+			rgba: 0.909,.898,1,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	orientation: 'vertical'
+	Button:
+		size_hint: 1,.2
+		text: 'Home'
+		on_release: root.on_release()
+	Label:
+		size_hint: 1,.35
+	GridLayout:
+		cols:2
+		size_hint: .7,1
+		pos_hint: {'x':.135,'y':.4}
+		
+		canvas.before:
+			Color:
+				rgba: 0.3,0.6,0.8,1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		Label:
+			text:'Give name to Database'
+			font_size: 16
+		TextInput:
+			font_size: 16
+			
+		Label:
+			text:'Place of Explosion'
+			font_size: 16
+		TextInput:
+			font_size: 16
+	Label:
+		size_hint: 1,.35
+	Button:
+		on_release: root.on_back()
+		background_color: 0.3,0.6,0.8,1
+		size_hint: 1,.2
+		text: 'Add details'
+		 
