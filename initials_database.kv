@@ -5,42 +5,31 @@
 		Rectangle:
 			pos: self.pos
 			size: self.size
-	
+	padding: 20
+	spacing: 20
 	Button:
-		text: "[color=000000]Go Back![/color]"
-		background_color: 0,0,0,0
+		text: "Go Back!"
+		#background_color: 0,0,0,0
 		markup: True
-		bold: True
-		pos_hint: {'x': .35, 'y': .55}
-		size_hint: .3,.4
+		#pos_hint: {'x': .35, 'y': .55}
+		#size_hint: .3,.4
+		font_size: 24
 		on_release: root.on_back()
-		canvas.before:
-			Color:
-				rgba: 0.3,0.8,0.8,1
-			Rectangle:
-				pos: self.pos
-				size: self.size
 		
 	Button:
 		
-		background_color: 0,0,0,0
-		pos_hint: {'x':.35 , 'y': .10}
-		size_hint: .3,.4
+		#background_color: 0,0,0,0
+		#pos_hint: {'x':.35 , 'y': .10}
+		#size_hint: .3,.4
 		on_release: root.on_poe()
 		BoxLayout:
 					
 			orientation: 'vertical'
 			pos: self.parent.pos
 			size: self.parent.size
-			canvas.before:
-				Color:
-					rgba: 0.3,0.6,0.8,1
-				Rectangle:
-					pos: self.pos
-					size: self.size
 			Image:
 				source: 'ic_action_edit.png'
 			Label:
-				text: '[color=000000]Enter POE[/color]'
-				bold: True
+				text: 'Enter POE'
+				font_size: 24
 				markup: True

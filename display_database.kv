@@ -1,0 +1,73 @@
+
+<Display_database>:
+	canvas.before:
+		Color:
+			rgba: 0.909,.898,1,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	padding: 15
+	spacing: 15
+	Button:
+		text: "Go Back!"
+		markup: True
+		bold: True
+		#pos_hint: {'x': .35, 'y': .55}
+		#size_hint: .3,.4
+		on_release: root.on_release()
+		
+					
+	Button:
+		#background_color: 0.3,0.6,0.8,1
+		#pos_hint: {'x': .65, 'y': .30}
+		#size_hint: .3,.4
+		BoxLayout:
+			
+			orientation: 'vertical'
+			pos: self.parent.pos
+			size: self.parent.size
+			Image:
+				source: 'ic_action_delete.png'
+			Label:
+				text: 'Delete debris'
+				bold: True
+				markup: True
+			
+		
+		
+	Button:
+		background_color: 0.3,0.6,0.8,1
+		on_release: root.on_add_debris()
+		#pos_hint: {'x':.05 , 'y': .30}
+		#size_hint: .3,.4
+		BoxLayout:
+			
+			orientation: 'vertical'
+			pos: self.parent.pos
+			size: self.parent.size
+			Image:
+				source: 'ic_action_done.png'
+			Label:
+				text: 'Add debris'
+				bold: True
+				markup: True
+						
+		#-----------------Map Data ---------------------------------#
+	Button:
+		
+		on_release: root.on_map_data()
+		#pos_hint: {'x': .35, 'y': .05}
+		#size_hint: .3,.4
+		background_color: 0.3,0.6,0.8,1
+		BoxLayout:
+						
+			orientation: 'vertical'
+			pos: self.parent.pos
+			size: self.parent.size
+			Image:
+				source: 'ic_action_paste.png'
+			Label:
+				text: 'Map Data'
+				bold: True
+				markup: True
+				

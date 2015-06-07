@@ -1,11 +1,25 @@
 <Button>:
-	background_color: 0,.4,.48,1
+	background_color: 0.3,0.6,0.8,1
 	
 <Add_Debris_Select>:
+	
+	
+	debris_id: debris_id
+	get_debris_id: get_debris_id
+	debris_type: debris_type
+	get_debris_type: get_debris_type
+	debris_weight: debris_weight
+	get_debris_weight: get_debris_weight
+	debris_lat: debris_lat
+	get_debris_lat: get_debris_lat
+	debris_long: debris_long
+	get_debris_long: get_debris_long
+	add_debris_to_db: add_debris_to_db
+	
 	orientation: 'vertical'
 	canvas.before:
 		Color:
-			rgba: 0.3,0.6,0.8,1
+			rgba: 0.7,0.3,0.4,1
 		Rectangle:
 			pos: self.pos
 			size: self.size
@@ -23,10 +37,7 @@
 		orientation: 'horizontal' if tbh.state == 'down' else 'vertical'
 		AccordionItem:
 			title: 'Use Camera'
-			Camera:
-				id:camera_2
-				resolution: (1,1)
-				play: True
+
 		AccordionItem:
 			title: 'Fill details'
 			
@@ -36,31 +47,51 @@
 					cols: 2
 			
 					Label:
-						text: 'ID'
+						text: 'debris_id'
+						id: debris_id
 					Label:
 						text: "00x123"
+						id: get_debris_id
 					Label:
 						text: "Type"
+						id: debris_type
 					Spinner:
 						text: 'Concrete'
+						id: get_debris_type
 						values: {'Other','Concrete','Steel','Mixed'}
 					Label: 
+						id: debris_weight
 						text: 'Approx. Weight'
 					TextInput:
+						id: get_debris_weight
 					Label:
+						id: debris_lat
 						text: 'Latutude'
 					TextInput:
+						id: get_debris_lat
 						multiline: False
 					Label:
+						id: debris_long
 						text: 'Longitude'
 					TextInput:
+						id: get_debris_long
 						multiline: False
+					Label:
+						id: debris_remark
+						text: "Remark"
+					TextInput:
+						id: get_debris_remark
 						
 				BoxLayout:
 					size_hint: 1,.1
 					Button:
+						id: add_debris_to_db
 						text: "Add to DataBase"
+						on_release: print(get_debris_lat.text)
+						on_release: root.not_full_info(self)
+						
 					Button:
+						id: back
 						text: 'Back'
 						on_release: root.on_back()
 					

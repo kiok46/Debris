@@ -4,12 +4,29 @@
 	bold: True
 	canvas.before:
 		Color:
-			rgba: 0.3,0.6,0.8,1
+			rgba: 0.7,0.3,0.4,1
 		Rectangle:
 			pos: self.pos
 			size: self.size
 
 <POE>:
+
+	poe_id: poe_id
+	get_poe_id: get_poe_id
+	poe_long: poe_long
+	get_poe_long: get_poe_long
+	poe_lat: poe_lat
+	get_poe_lat: get_poe_lat
+	poe_charge_weight: poe_charge_weight
+	get_poe_charge_weight: get_poe_charge_weight
+	poe_diameter: poe_diameter
+	get_poe_diameter: get_poe_diameter
+	poe_depth: poe_depth
+	get_poe_depth: get_poe_depth
+	poe_remark: poe_remark
+	get_poe_remark: get_poe_remark
+
+
 	canvas.before:
 		Color:
 			rgba: 1,1,1,1
@@ -18,67 +35,87 @@
 			size: self.size
 	orientation: 'vertical'
 	Button:
-		size_hint:1,.1
+		size_hint:1,.15
 		text:"Back" 
 		background_color: 0,.4,.48,1
 		on_release: root.on_back()
-	BoxLayout:
+	
+	GridLayout:
 		padding: 6
-		spacing: 5
-		BoxLayout:
-			orientation:'vertical'
+		spacing: 2
+		cols:2
+		
+		Label_poe:
+			text: 'ID'
+			id: poe_id
+			markup: True
+			halign: 'left'
 			
-			Label_poe:
-				text: 'ID'
-				markup: True
-				halign: 'left'
+		TextInput:
+			id: get_poe_id
+			text: "00x123"
+			multiline: False
+			
+		Label_poe:
+			id: poe_long
+			text: 'Longitude'
+			markup: True
+			halign: 'left'
+			
+		TextInput:
+			id: get_poe_long
+			multiline: False
+			
+		Label_poe:
+			id: poe_lat
+			text: 'Latitude'
+			markup: True
+			halign: 'left'
+		
+		TextInput:
+			id: get_poe_lat
+			multiline: False
+			
+		
+		Label_poe:
+			id: poe_charge_weight
+			text: 'Approx charge Weight'
+			markup: True
+			halign: 'left'
+			
+		TextInput:
+			id: get_poe_charge_weight
+			multiline: False
+			
+		Label_poe:
+			id: poe_diameter
+			text: 'Crater Diameter'
+			markup: True
+		
+		TextInput:
+			id: get_poe_diameter
+			multiline: False
+			
+		Label_poe:
+			id: poe_depth
+			text: 'Crater Depth'
+			markup: True
+		
+		TextInput:
+			id: get_poe_depth
+			multiline: False
 				
-			Label_poe:
-				text: 'Longitude'
-				markup: True
-				halign: 'left'
-			Label_poe:
-				text: 'Latitude'
-				markup: True
-				halign: 'left'
-			Label_poe:
-				text: 'Approx charge Weight'
-				markup: True
-				halign: 'left'
-			Label_poe:
-				text: 'Crater Diameter'
-				markup: True
-			Label_poe:
-				text: 'Crater Depth'
-				markup: True
-			Label_poe:
-				text: 'Remark'
-				markup: True
-		BoxLayout:
-			padding:3
-			spacing:3
-			orientation: 'vertical'
-			TextInput:
-				text: "00x123"
-				multiline: False
-			TextInput:
-				multiline: False
+		Label_poe:
+			id: poe_remark
+			text: 'Remark'
+			markup: True
 		
-			TextInput:
-				multiline: False
-			TextInput:
-				multiline: False
-			
-			TextInput:
-				multiline: False
-			
-			TextInput:
-				multiline: False
+		TextInput:
+			id: get_poe_remark
 		
-			TextInput:
 		
 	Button:
-		size_hint: 1,.1 
+		size_hint: 1,.15 
 		text:"Store & Create database"
 		background_color: 0,.4,.48,1
 
